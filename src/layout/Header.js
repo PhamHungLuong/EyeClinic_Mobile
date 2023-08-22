@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import styled from 'styled-components/native';
 
 import { _4dp, _6dp } from '../constants/dpConstants';
 import { COLOR } from '../styles/color';

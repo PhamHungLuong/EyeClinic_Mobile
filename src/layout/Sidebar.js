@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Entypo';
-
 import { COLOR } from '../styles/color';
-import { _1dp, _2dp, _4dp, _6dp, windowWidth } from '../constants/dpConstants';
 import Divider from '../components/Divider';
+
+import { _1dp, _2dp, _4dp, _6dp, windowWidth } from '../constants/dpConstants';
 
 const Sidebar = ({ closeDrawer }) => {
   const navigation = useNavigation();

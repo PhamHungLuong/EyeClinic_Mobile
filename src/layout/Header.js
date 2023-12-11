@@ -3,17 +3,17 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import styled from 'styled-components/native';
 
-import { _4dp, _6dp } from '../constants/dpConstants';
+import { _2dp, _4dp, _3dp , _6dp } from '../constants/dpConstants';
 import { COLOR } from '../styles/color';
 import { View } from 'react-native';
 
 const Header = ({ onOpenMenu }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity activeOpacity={0.7} onPress={onOpenMenu}>
+      <TouchableOpacity style={styles.iconSidebar} activeOpacity={0.7} onPress={onOpenMenu}>
         <Icon name="menu" color={COLOR.black} size={30} />
       </TouchableOpacity>
-      <Text style={styles.avartarText}>L</Text>
+      <Text style={styles.avatarText}>L</Text>
     </View>
   );
 };
@@ -29,7 +29,12 @@ const styles = StyleSheet.create({
     marginTop: _6dp,
   },
 
-  avartarText: {
+  iconSidebar: {
+    paddingHorizontal: _3dp,
+    paddingVertical: _2dp,
+  },
+
+  avatarText: {
     padding: _4dp,
     paddingLeft: _6dp,
     paddingRight: _6dp,

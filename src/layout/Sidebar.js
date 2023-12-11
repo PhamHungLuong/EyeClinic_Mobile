@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import appRoutes from '../router/appRoutes';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Entypo';
@@ -20,43 +21,33 @@ const Sidebar = ({ closeDrawer }) => {
   return (
     <View style={styles.container}>
       <View style={styles.listMenu}>
-        <TouchableOpacity onPress={() => navigateToScreen('Home')}>
-          <View
-            style={activeScreen === 'Home' ? styles.activeText : styles.text}
-          >
-            <Icon
-              name="home"
-              color={activeScreen === 'Home' ? COLOR.white : COLOR.black}
-              size={20}
-            />
-            <Text
-              style={
-                activeScreen === 'Home' ? styles.contentActive : styles.content
-              }
-            >
-              Go to Home
-            </Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigateToScreen('Login')}>
-          <View
-            style={activeScreen === 'Login' ? styles.activeText : styles.text}
-          >
-            <Icon
-              style={styles.icon}
-              name="home"
-              color={activeScreen === 'Login' ? COLOR.white : COLOR.black}
-              size={20}
-            />
-            <Text
-              style={
-                activeScreen === 'Login' ? styles.contentActive : styles.content
-              }
-            >
-              Go to Login
-            </Text>
-          </View>
-        </TouchableOpacity>
+        {appRoutes.map((screen) => {
+          return (
+            <TouchableOpacity onPress={() => navigateToScreen(screen.path)}>
+              <View
+                style={
+                  activeScreen === screen.name ? styles.activeText : styles.text
+                }
+              >
+                <Icon
+                  style={styles.icon}
+                  name={screen.icon}
+                  color={activeScreen === screen.name ? COLOR.white : COLOR.black}
+                  size={20}
+                />
+                <Text
+                  style={
+                    activeScreen === screen.name
+                      ? styles.contentActive
+                      : styles.content
+                  }
+                >
+                  {screen.text}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          );
+        })}
       </View>
       <Divider color={COLOR.divider} />
       <TouchableOpacity style={styles.text} onPress={closeDrawer}>
